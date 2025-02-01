@@ -76,6 +76,16 @@
         <option value="bab13">Bab 13</option>
         <option value="bab14">Bab 14</option>
         <option value="bab15">Bab 15</option>
+        <option value="bab16">Bab 16</option>
+        <option value="bab17">Bab 17</option>
+        <option value="bab18">Bab 18</option>
+        <option value="bab19">Bab 19</option>
+        <option value="bab20">Bab 20</option>
+        <option value="bab21">Bab 21</option>
+        <option value="bab22">Bab 22</option>
+        <option value="bab23">Bab 23</option>
+        <option value="bab24">Bab 24</option>
+        <option value="bab25">Bab 25</option>
       </select>
     </div>
 
@@ -108,7 +118,7 @@
       
               if (data[bab]) {
                 data[bab].forEach((item, index) => {
-                  rows += `<tr class="text-center ${index % 15 === 0 ? 'odd:bg-gray-100' : 'even:bg-gray-200'}">
+                  rows += `<tr class="text-center ${index % 25 === 0 ? 'odd:bg-gray-100' : 'even:bg-gray-200'}">
                     <td class="whitespace-nowrap px-4 py-2 font-medium">${item.kana}</td>
                     <td class="whitespace-nowrap px-4 py-2">${item.kanji}</td>
                     <td class="whitespace-nowrap px-4 py-2">${item.arti}</td>
