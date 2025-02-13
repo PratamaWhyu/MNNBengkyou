@@ -134,7 +134,7 @@
       let searchInput = document.getElementById('searchInput');
       let clearSearch = document.getElementById('clearSearch');
       let allData = {};
-
+    
       fetch('kosakata.json')
         .then((response) => response.json())
         .then((data) => {
@@ -142,14 +142,15 @@
           updateTable(babSelector.value);
         })
         .catch((error) => console.error('Error fetching JSON:', error));
-
+    
       function updateTable(bab) {
         tableBody.innerHTML = '';
         let rows = '';
-
+    
         if (allData[bab]) {
-          allData[bab].forEach((item) => {
-            rows += `<tr>
+          allData[bab].forEach((item, index) => {
+            let rowClass = index % 2 === 0 ? 'bg-gray-100' : 'bg-white'; // Selang-seling warna
+            rows += `<tr class="${rowClass}">
                         <td class="px-4 py-2">${item.kana}</td>
                         <td class="px-4 py-2">${item.kanji}</td>
                         <td class="px-4 py-2">${item.arti}</td>
@@ -158,25 +159,28 @@
           tableBody.innerHTML = rows;
         }
       }
-
+    
       babSelector.addEventListener('change', function () {
         updateTable(this.value);
       });
-
+    
       searchInput.addEventListener('input', function () {
         let keyword = this.value.toLowerCase();
         tableBody.innerHTML = '';
         let rows = '';
-
+        let rowIndex = 0; // Untuk tetap menjaga selang-seling warna setelah filter
+    
         if (keyword) {
           for (let bab in allData) {
             allData[bab].forEach((item) => {
               if (item.kana.toLowerCase().includes(keyword) || item.kanji.toLowerCase().includes(keyword) || item.arti.toLowerCase().includes(keyword)) {
-                rows += `<tr>
+                let rowClass = rowIndex % 2 === 0 ? 'bg-gray-100' : 'bg-white';
+                rows += `<tr class="${rowClass}">
                             <td class="px-4 py-2">${item.kana}</td>
                             <td class="px-4 py-2">${item.kanji}</td>
                             <td class="px-4 py-2">${item.arti}</td>
                           </tr>`;
+                rowIndex++;
               }
             });
           }
@@ -187,13 +191,14 @@
           updateTable(babSelector.value);
         }
       });
-
+    
       clearSearch.addEventListener('click', function () {
         searchInput.value = '';
         clearSearch.style.display = 'none';
         updateTable(babSelector.value);
       });
     </script>
+    
 
     <!-- -->
 
