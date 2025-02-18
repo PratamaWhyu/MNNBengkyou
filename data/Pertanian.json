@@ -1,0 +1,27 @@
+
+{
+  "pertanian": [
+    { "kana": "のうぎょう", "kanji": "農業", "arti": "Pertanian" },
+    { "kana": "のうか", "kanji": "農家", "arti": "Petani" },
+    { "kana": "たんぼ", "kanji": "田んぼ", "arti": "Sawah" },
+    { "kana": "はたけ", "kanji": "畑", "arti": "Ladang/kebun" },
+    { "kana": "しゅうかく", "kanji": "収穫", "arti": "Panen" },
+    { "kana": "うえる", "kanji": "植える", "arti": "Menanam" },
+    { "kana": "たね", "kanji": "種", "arti": "Benih/bibit" },
+    { "kana": "みずまき", "kanji": "水撒き", "arti": "Penyiraman" },
+    { "kana": "ひりょう", "kanji": "肥料", "arti": "Pupuk" },
+    { "kana": "くさとり", "kanji": "草取り", "arti": "Menyiangi rumput" },
+    { "kana": "のうやく", "kanji": "農薬", "arti": "Pestisida" },
+    { "kana": "ビニールハウス", "kanji": "-", "arti": "Rumah kaca" },
+    { "kana": "けんさくき", "kanji": "耕作機", "arti": "Mesin pertanian" },
+    { "kana": "トラクター", "kanji": "-", "arti": "Traktor" },
+    { "kana": "コンバイン", "kanji": "-", "arti": "Combine harvester" },
+    { "kana": "いね", "kanji": "稲", "arti": "Padi" },
+    { "kana": "やさい", "kanji": "野菜", "arti": "Sayuran" },
+    { "kana": "くだもの", "kanji": "果物", "arti": "Buah-buahan" },
+    { "kana": "いも", "kanji": "芋", "arti": "Umbi" },
+    { "kana": "とうもろこし", "kanji": "-", "arti": "Jagung" },
+    { "kana": "おちゃ", "kanji": "お茶", "arti": "Teh" },
+    { "kana": "こめ", "kanji": "米", "arti": "Beras" }
+  ]
+}
