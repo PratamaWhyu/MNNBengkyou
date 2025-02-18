@@ -54,154 +54,167 @@
     </nav>
     <!--END NAVBAR-->
 
-    <!-- SEARCH BAR -->
-    <div class="m-8 pt-20 relative">
-      <label for="searchInput" class="block text-lg font-bold">Cari Kosakata:</label>
-      <div class="relative w-full">
-        <input type="text" id="searchInput" placeholder="Masukkan kata (Kana/Kanji/Arti)" class="w-full p-2 mt-1 border rounded pr-10" />
-        <button id="clearSearch" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hidden">❌</button>
-      </div>
-    </div>
+    <section class="py-12 bg-gray-200 text-gray-100 sm:py-12 lg:py-16">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- Form Pencarian -->
+        <form id="search-form" class="max-w-2xl mx-auto bg-gray p-6 shadow-md rounded-lg">
+          <div class="relative flex items-center">
+            <!-- Input Pencarian -->
+            <input type="search" id="default-search" class="block w-full px-5 py-3 text-lg text-gray-900 border border-gray-300 rounded-lg" placeholder="Cari kata..." required />
 
-    <div id="search-result-container" class="m-8 hidden">
-      <h2 class="text-lg font-bold mb-2">Hasil Pencarian:</h2>
-      <div class="rounded-lg border bg-gray-500">
-        <div class="overflow-x-auto rounded-t-lg">
-          <table class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead class="bg-red-500 text-white text-xl text-center">
-              <tr>
-                <th class="px-4 py-2">Kana</th>
-                <th class="px-4 py-2">Kanji</th>
-                <th class="px-4 py-2">Arti</th>
-              </tr>
-            </thead>
-            <tbody id="search-result-body" class="divide-y divide-gray-200"></tbody>
-          </table>
+            <!-- Tombol X untuk Clear Input -->
+            <button type="button" id="clear-button" class="absolute right-20 bg-red-600 text-white-700 px-3 py-2 rounded-md hidden">X</button>
+
+            <!-- Tombol Cari -->
+            <button type="submit" class="absolute right-2 bg-blue-600 text-white px-4 py-2 rounded-md">Cari</button>
+          </div>
+        </form>
+        <!-- Hasil Pencarian (disembunyikan) -->
+        <div id="search-results" class="max-w-2xl mx-auto mt-4 bg-white p-6 shadow-md rounded-lg hidden"></div>
+
+        <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
+          <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl mb-6 p-6">Pilih Kosakata Yang Kamu Mau!</h2>
+          <h6 class="mb-4 text-gray-900">Baru ada Minna No Nihongo doang nih hahaha, yang lainnya nyusul ya</h6>
+        </div>
+        <div class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20">
+          <!-- Realtime Collaboration -->
+          <a href="mnn1.html" class="relative block">
+            <div class="absolute -inset-1">
+              <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
+            </div>
+            <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full flex items-center justify-center p-9 text-center">
+              <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 1</h3>
+            </div>
+          </a>
+
+          <!-- History of Edits -->
+          <a href="mnn2.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
+            <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 2</h3>
+          </a>
+
+          <!-- Integrations -->
+          <a href="#.html" class="relative block">
+            <div class="absolute -inset-1">
+              <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
+            </div>
+            <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full flex items-center justify-center p-9 text-center">
+              <h3 class="text-2xl font-bold text-gray-900">Cooming Soon</h3>
+            </div>
+          </a>
+
+          <!-- Publish Webpage Online -->
+          <a href="#-webpage.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
+            <h3 class="text-2xl font-bold text-gray-900">Cooming Soon</h3>
+          </a>
+
+          <!-- Forms and Data Collection -->
+          <a href="#.html" class="relative block">
+            <div class="absolute -inset-1">
+              <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
+            </div>
+            <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full flex items-center justify-center p-9 text-center">
+              <h3 class="text-2xl font-bold text-gray-900">cooming soon</h3>
+            </div>
+          </a>
+
+          <!-- Custom Domains -->
+          <a href="#.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
+            <h3 class="text-2xl font-bold text-gray-900">Cooming soon</h3>
+          </a>
         </div>
       </div>
-    </div>
-    <!-- SEARCH BAR END -->
-
-    <div class="m-8">
-      <label for="babSelector" class="text-lg font-bold">Pilih Bab:</label>
-      <select id="babSelector" class="border p-2 rounded">
-        <option value="bab1">Bab 1</option>
-        <option value="bab2">Bab 2</option>
-        <option value="bab3">Bab 3</option>
-        <option value="bab4">Bab 4</option>
-        <option value="bab5">Bab 5</option>
-        <option value="bab6">Bab 6</option>
-        <option value="bab7">Bab 7</option>
-        <option value="bab8">Bab 8</option>
-        <option value="bab9">Bab 9</option>
-        <option value="bab10">Bab 10</option>
-        <option value="bab11">Bab 11</option>
-        <option value="bab12">Bab 12</option>
-        <option value="bab13">Bab 13</option>
-        <option value="bab14">Bab 14</option>
-        <option value="bab15">Bab 15</option>
-        <option value="bab16">Bab 16</option>
-        <option value="bab17">Bab 17</option>
-        <option value="bab18">Bab 18</option>
-        <option value="bab19">Bab 19</option>
-        <option value="bab20">Bab 20</option>
-        <option value="bab21">Bab 21</option>
-        <option value="bab22">Bab 22</option>
-        <option value="bab23">Bab 23</option>
-        <option value="bab24">Bab 24</option>
-        <option value="bab25">Bab 25</option>
-      </select>
-    </div>
-
-    <div class="rounded-lg border bg-gray-500 m-8">
-      <div class="overflow-x-auto rounded-t-lg">
-        <table id="kosakata-table" class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
-          <thead class="bg-blue-500 text-white text-xl text-center">
-            <tr>
-              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Kana</th>
-              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Kanji</th>
-              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Arti</th>
-            </tr>
-          </thead>
-          <tbody id="kosakata-body" class="divide-y divide-gray-200 text-center"></tbody>
-        </table>
-      </div>
-    </div>
-
+    </section>
     <script>
-      let tableBody = document.getElementById('kosakata-body');
-      let babSelector = document.getElementById('babSelector');
-      let searchInput = document.getElementById('searchInput');
-      let clearSearch = document.getElementById('clearSearch');
-      let allData = {};
-    
-      fetch('kosakata.json')
-        .then((response) => response.json())
-        .then((data) => {
-          allData = data;
-          updateTable(babSelector.value);
+      let kosakata = {}; // Menyimpan semua data dari kedua JSON
+
+      // Ambil data dari kedua file JSON
+      Promise.all([fetch('data/MinnaNoNihongo.json').then((response) => response.json()), fetch('data/Pertanian.json').then((response) => response.json())])
+        .then(([minnaData, pertanianData]) => {
+          // Gabungkan data dari kedua JSON, menyimpan info asal file
+          kosakata = {
+            minnanonihongo: { data: minnaData, file: 'minnanonihongo.json' },
+            pertanian: { data: pertanianData, file: 'pertanian.json' },
+          };
         })
-        .catch((error) => console.error('Error fetching JSON:', error));
-    
-      function updateTable(bab) {
-        tableBody.innerHTML = '';
-        let rows = '';
-    
-        if (allData[bab]) {
-          allData[bab].forEach((item, index) => {
-            let rowClass = index % 2 === 0 ? 'bg-gray-100' : 'bg-white'; // Selang-seling warna
-            rows += `<tr class="${rowClass}">
-                        <td class="px-4 py-2">${item.kana}</td>
-                        <td class="px-4 py-2">${item.kanji}</td>
-                        <td class="px-4 py-2">${item.arti}</td>
-                      </tr>`;
+        .catch((error) => console.error('Gagal memuat data:', error));
+
+      const searchInput = document.getElementById('default-search');
+      const clearButton = document.getElementById('clear-button');
+      const resultContainer = document.getElementById('search-results');
+
+      document.getElementById('search-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        performSearch();
+      });
+
+      searchInput.addEventListener('input', function () {
+        if (searchInput.value.trim() !== '') {
+          clearButton.classList.remove('hidden');
+        } else {
+          clearButton.classList.add('hidden');
+          resultContainer.classList.add('hidden');
+        }
+      });
+
+      clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        clearButton.classList.add('hidden');
+        resultContainer.classList.add('hidden');
+      });
+
+      function performSearch() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        resultContainer.innerHTML = ''; // Bersihkan hasil sebelumnya
+
+        if (searchTerm === '') {
+          resultContainer.classList.add('hidden');
+          return;
+        }
+
+        let results = [];
+
+        // Looping melalui semua file dan kategori dalam JSON (baik dari Minna no Nihongo maupun Pertanian)
+        Object.keys(kosakata).forEach((file) => {
+          const data = kosakata[file].data;
+
+          // Looping melalui semua kategori dalam setiap file
+          Object.keys(data).forEach((kategori) => {
+            if (Array.isArray(data[kategori])) {
+              data[kategori].forEach((item) => {
+                // Pencarian berdasarkan item dalam kategori
+                if (item.kana?.includes(searchTerm) || item.kanji?.includes(searchTerm) || item.arti?.toLowerCase().includes(searchTerm)) {
+                  results.push({
+                    ...item,
+                    kategori,
+                    file: kosakata[file].file.split('.json')[0], // Menghapus ekstensi .json
+                  });
+                }
+              });
+            }
           });
-          tableBody.innerHTML = rows;
+        });
+
+        // Menampilkan hasil pencarian
+        if (results.length > 0) {
+          results.forEach((item) => {
+            const div = document.createElement('div');
+            div.classList.add('p-4', 'border-b', 'border-gray-300', 'bg-white', 'rounded-lg', 'shadow-md', 'mb-2');
+            div.innerHTML = `<strong class="text-gray-900">${item.kana} (${item.kanji})</strong> 
+                 <p class="text-gray-900">${item.arti}</p>
+                 <span class="text-blue-600 text-sm">${item.kategori} - ${item.file}</span>`;
+            resultContainer.appendChild(div);
+          });
+          resultContainer.classList.remove('hidden');
+        } else {
+          resultContainer.innerHTML = "<p class='text-red-500'>Tidak ada hasil ditemukan.</p>";
+          resultContainer.classList.remove('hidden');
         }
       }
-    
-      babSelector.addEventListener('change', function () {
-        updateTable(this.value);
-      });
-    
-      searchInput.addEventListener('input', function () {
-        let keyword = this.value.toLowerCase();
-        tableBody.innerHTML = '';
-        let rows = '';
-        let rowIndex = 0; // Untuk tetap menjaga selang-seling warna setelah filter
-    
-        if (keyword) {
-          for (let bab in allData) {
-            allData[bab].forEach((item) => {
-              if (item.kana.toLowerCase().includes(keyword) || item.kanji.toLowerCase().includes(keyword) || item.arti.toLowerCase().includes(keyword)) {
-                let rowClass = rowIndex % 2 === 0 ? 'bg-gray-100' : 'bg-white';
-                rows += `<tr class="${rowClass}">
-                            <td class="px-4 py-2">${item.kana}</td>
-                            <td class="px-4 py-2">${item.kanji}</td>
-                            <td class="px-4 py-2">${item.arti}</td>
-                          </tr>`;
-                rowIndex++;
-              }
-            });
-          }
-          tableBody.innerHTML = rows || `<tr><td colspan="3" class="text-center text-red-500">Tidak ditemukan</td></tr>`;
-          clearSearch.style.display = 'block';
-        } else {
-          clearSearch.style.display = 'none';
-          updateTable(babSelector.value);
-        }
-      });
-    
-      clearSearch.addEventListener('click', function () {
-        searchInput.value = '';
-        clearSearch.style.display = 'none';
-        updateTable(babSelector.value);
+      //responsive mobile
+      document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        var menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
       });
     </script>
-    
-
-    <!-- -->
-
-    <!---->
   </body>
 </html>

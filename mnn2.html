@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kosakata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-200">
+    <!-- NAVBAR-->
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-center">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button -->
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center">
+            <div class="hidden sm:block">
+              <div class="flex space-x-4">
+                <a href="index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+                <a href="kosakata.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page" aria-current="page">Kosakata</a>
+                <a href="polakalimat.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Pola Kalimat</a>
+                <a href="quiz.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Quiz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pt-2 pb-3">
+          <a href="index.html" class="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+          <a href="kosakata.html" class="block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Kosakata</a>
+          <a href="polakalimat.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Pola Kalimat</a>
+          <a href="quiz.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Quiz</a>
+        </div>
+      </div>
+    </nav>
+    <!--END NAVBAR-->
+
+    
+
+    <div id="search-result-container" class="m-8 hidden">
+      <h2 class="text-lg font-bold mb-2">Hasil Pencarian:</h2>
+      <div class="rounded-lg border bg-gray-500">
+        <div class="overflow-x-auto rounded-t-lg">
+          <table class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
+            <thead class="bg-red-500 text-white text-xl text-center">
+              <tr>
+                <th class="px-4 py-2">Kana</th>
+                <th class="px-4 py-2">Kanji</th>
+                <th class="px-4 py-2">Arti</th>
+              </tr>
+            </thead>
+            <tbody id="search-result-body" class="divide-y divide-gray-200"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- SEARCH BAR END -->
+
+    <div class="m-8">
+      <label for="babSelector" class="text-lg font-bold">Pilih Bab:</label>
+      <select id="babSelector" class="border p-2 rounded">
+        <option value="bab26">Bab 26</option>
+        <option value="bab27">Bab 27</option>
+        <option value="bab28">Bab 28</option>
+        <option value="bab29">Bab 29</option>
+        <option value="bab30">Bab 30</option>
+        <option value="bab31">Bab 31</option>
+        <option value="bab32">Bab 32</option>
+        <option value="bab33">Bab 33</option>
+        <option value="bab34">Bab 34</option>
+        <option value="bab35">Bab 35</option>
+        <option value="bab36">Bab 36</option>
+        <option value="bab37">Bab 37</option>
+        <option value="bab38">Bab 38</option>
+        <option value="bab39">Bab 39</option>
+        <option value="bab40">Bab 40</option>
+        <option value="bab41">Bab 41</option>
+        <option value="bab42">Bab 42</option>
+        <option value="bab43">Bab 43</option>
+        <option value="bab44">Bab 44</option>
+        <option value="bab45">Bab 45</option>
+        <option value="bab46">Bab 46</option>
+        <option value="bab47">Bab 47</option>
+        <option value="bab48">Bab 48</option>
+        <option value="bab49">Bab 49</option>
+        <option value="bab50">Bab 50</option>
+      </select>
+    </div>
+
+    <div class="rounded-lg border bg-gray-500 m-8">
+      <div class="overflow-x-auto rounded-t-lg">
+        <table id="kosakata-table" class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
+          <thead class="bg-blue-500 text-white text-xl text-center">
+            <tr>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Kana</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Kanji</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-center">Arti</th>
+            </tr>
+          </thead>
+          <tbody id="kosakata-body" class="divide-y divide-gray-200 text-center"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      let tableBody = document.getElementById('kosakata-body');
+      let babSelector = document.getElementById('babSelector');
+      let allData = {};
+  
+      // Ambil data dari JSON
+      fetch('data/minnanonihongo.json')
+        .then(response => response.json())
+        .then(data => {
+          allData = data;
+          updateTable(babSelector.value); // Tampilkan data default
+        })
+        .catch(error => console.error('Gagal memuat JSON:', error));
+  
+      // Event listener ketika bab diubah
+      babSelector.addEventListener('change', function () {
+        updateTable(this.value);
+      });
+  
+      // Fungsi untuk memperbarui tabel berdasarkan bab yang dipilih
+      function updateTable(bab) {
+        tableBody.innerHTML = ''; // Kosongkan tabel sebelum diisi ulang
+  
+        if (!allData[bab] || allData[bab].length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="3" class="text-center text-red-500">Tidak ada data untuk bab ini</td></tr>`;
+          return;
+        }
+  
+        let rows = '';
+        allData[bab].forEach((item, index) => {
+          let rowClass = index % 2 === 0 ? 'bg-gray-100' : 'bg-white';
+          rows += `<tr class="${rowClass}">
+                    <td class="px-4 py-2">${item.kana}</td>
+                    <td class="px-4 py-2">${item.kanji}</td>
+                    <td class="px-4 py-2">${item.arti}</td>
+                  </tr>`;
+        });
+  
+        tableBody.innerHTML = rows;
+      }
+      //responsive mobile
+      document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        var menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      });
+    </script>
+    
+
+    <!-- -->
+
+    <!---->
+  </body>
+</html>
