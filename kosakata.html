@@ -132,8 +132,8 @@
         .then(([minnaData, pertanianData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
           kosakata = {
-            minnanonihongo: { data: minnaData, file: 'minnanonihongo.json' },
-            pertanian: { data: pertanianData, file: 'pertanian.json' },
+            minnanonihongo: { data: minnaData, file: 'Minna No Nihongo.json' },
+            pertanian: { data: pertanianData, file: 'Pertanian.json' },
           };
         })
         .catch((error) => console.error('Gagal memuat data:', error));
