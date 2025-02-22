@@ -131,8 +131,8 @@
       Promise.all([
         fetch('data/MinnaNoNihongo.json').then((response) => response.json()),
         fetch('data/Pertanian.json').then((response) => response.json()),
-        fetch('data/Pelayananpelanggan.json').then((response) => response.json()),
-        fetch('data/Persiapanmakanandanminuman.json').then((response) => response.json())
+        fetch('data/PelayananPelanggan.json').then((response) => response.json()),
+        fetch('data/PersiapanMakanandanMinuman.json').then((response) => response.json())
       ])
         .then(([minnaData, pertanianData, PelayananPelangganData, persiapanmakanandanminumanData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
