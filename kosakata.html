@@ -125,19 +125,15 @@
       </div>
     </section>
     <script>
-      let kosakata = {}; // Menyimpan semua data dari file JSON
+      let kosakata = {}; // Menyimpan semua data dari kedua JSON
 
       // Ambil data dari kedua file JSON
-      Promise.all([fetch('data/MinnaNoNihongo.json').then((response) => response.json()), 
-                    fetch('data/Pertanian.json').then((response) => response.json()),
-                    
-                    ])
-        .then(([minnaData, pertanianData,PelayananPelangganData,persiapanmakanandanminumanData]) => {
+      Promise.all([fetch('data/MinnaNoNihongo.json').then((response) => response.json()), fetch('data/Pertanian.json').then((response) => response.json())])
+        .then(([minnaData, pertanianData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
           kosakata = {
             minnanonihongo: { data: minnaData, file: 'minnanonihongo.json' },
             pertanian: { data: pertanianData, file: 'pertanian.json' },
-            
           };
         })
         .catch((error) => console.error('Gagal memuat data:', error));
