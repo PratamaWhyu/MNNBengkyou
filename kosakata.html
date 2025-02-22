@@ -133,13 +133,13 @@
         fetch('data/Pertanian.json').then((response) => response.json()),
         fetch('data/PelayananPelanggan.json').then((response) => response.json()),
         fetch('data/PersiapanMakanandanMinuman.json').then((response) => response.json())])
-        .then(([minnaData, pertanianData, PelayananPelangganData, persiapanmakanandanminumanData]) => {
+        .then(([minnaData, pertanianData, pelayananpelangganData, persiapanmakanandanminumanData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
           kosakata = {
             minnanonihongo: { data: minnaData, file: 'MinnaNoNihongo.json' },
             pertanian: { data: pertanianData, file: 'Pertanian.json' },
-            PelayananPelanggan: { data: PelayananPelangganData, file: 'Restoran.json' },
-            persiapanmakanandanminuman: { data: persiapanmakanandanminumanData, file: 'Restoran.json' },
+            pelayananpelanggan: { data: pelayananpelangganData, file: 'Restoran-PelayananPelanggan.json' },
+            persiapanmakanandanminuman: { data: persiapanmakanandanminumanData, file: 'Restoran-PersiapanMakanandanMinuman.json' },
           };
         })
         .catch((error) => console.error('Gagal memuat data:', error));
