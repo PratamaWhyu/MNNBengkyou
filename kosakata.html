@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kosakata</title>
+    <title>Pencarian Kosakata</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
@@ -74,22 +74,22 @@
 
         <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
           <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl mb-6 p-6">Pilih Kosakata Yang Kamu Mau!</h2>
-          <h6 class="mb-4 text-gray-900">Baru ada sebagian aja nih, tungguin update kosakata yang lainnya yaw</h6>
+          <h6 class="mb-4 text-gray-900">Baru ada Minna No Nihongo doang nih hahaha, yang lainnya nyusul ya</h6>
         </div>
         <div class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20">
           <!-- Realtime Collaboration -->
-          <a href="minnanonihongo.html" class="relative block">
+          <a href="mnn1.html" class="relative block">
             <div class="absolute -inset-1">
               <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
             </div>
             <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full flex items-center justify-center p-9 text-center">
-              <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo</h3>
+              <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 1</h3>
             </div>
           </a>
 
           <!-- History of Edits -->
-          <a href="pertanian.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
-            <h3 class="text-2xl font-bold text-gray-900">Pertanian</h3>
+          <a href="mnn2.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
+            <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 2</h3>
           </a>
 
           <!-- Integrations -->
@@ -104,7 +104,7 @@
 
           <!-- Publish Webpage Online -->
           <a href="pertanian.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
-            <h3 class="text-2xl font-bold text-gray-900">Coming Soon</h3>
+            <h3 class="text-2xl font-bold text-gray-900">Pertanian</h3>
           </a>
 
           <!-- Forms and Data Collection -->
@@ -128,13 +128,12 @@
       let kosakata = {}; // Menyimpan semua data dari file JSON
 
       // Ambil data dari kedua file JSON
-      Promise.all([
-        fetch('data/minnanonihongo.json').then((response) => response.json()),
-        fetch('data/pertanian.json').then((response) => response.json()),
-        fetch('data/pelayananpelanggan.json').then((response) => response.json()),
-        fetch('data/persiapanmakanandanminuman.json').then((response) => response.json()),
-      ])
-        .then(([minnaData, pertanianData, PelayananPelangganData, persiapanmakanandanminumanData]) => {
+      Promise.all([fetch('data/minnanonihongo.json').then((response) => response.json()), 
+                    fetch('data/pertanian.json').then((response) => response.json()),
+                    fetch('data/pelayananpelanggan.json').then((response) => response.json()),
+                    fetch('data/persiapanmakanandanminuman.json').then((response) => response.json())
+                    ])
+        .then(([minnaData, pertanianData,PelayananPelangganData,persiapanmakanandanminumanData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
           kosakata = {
             minnanonihongo: { data: minnaData, file: 'minnanonihongo.json' },
