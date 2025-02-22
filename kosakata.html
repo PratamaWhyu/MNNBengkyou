@@ -78,18 +78,18 @@
         </div>
         <div class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20">
           <!-- Realtime Collaboration -->
-          <a href="mnn1.html" class="relative block">
+          <a href="minnanonihongo.html" class="relative block">
             <div class="absolute -inset-1">
               <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
             </div>
             <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full flex items-center justify-center p-9 text-center">
-              <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 1</h3>
+              <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 1 & 2</h3>
             </div>
           </a>
 
           <!-- History of Edits -->
-          <a href="mnn2.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
-            <h3 class="text-2xl font-bold text-gray-900">Minna No Nihongo 2</h3>
+          <a href="pertanian.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
+            <h3 class="text-2xl font-bold text-gray-900">Pertanian</h3>
           </a>
 
           <!-- Integrations -->
@@ -104,7 +104,7 @@
 
           <!-- Publish Webpage Online -->
           <a href="pertanian.html" class="block overflow-hidden bg-white shadow-md rounded-xl flex items-center justify-center p-9 text-center">
-            <h3 class="text-2xl font-bold text-gray-900">Pertanian</h3>
+            <h3 class="text-2xl font-bold text-gray-900">Coming Soon</h3>
           </a>
 
           <!-- Forms and Data Collection -->
@@ -128,12 +128,19 @@
       let kosakata = {}; // Menyimpan semua data dari kedua JSON
 
       // Ambil data dari kedua file JSON
-      Promise.all([fetch('data/MinnaNoNihongo.json').then((response) => response.json()), fetch('data/Pertanian.json').then((response) => response.json())])
-        .then(([minnaData, pertanianData]) => {
+      Promise.all([
+        fetch('data/minnanonihongo.json').then((response) => response.json()),
+        fetch('data/pertanian.json').then((response) => response.json()),
+        fetch('data/pelayananpelanggan.json').then((response) => response.json()),
+        fetch('data/persiapanmakanandanminuman.json').then((response) => response.json())
+      ])
+        .then(([minnaData, pertanianData, PelayananPelangganData, persiapanmakanandanminumanData]) => {
           // Gabungkan data dari kedua JSON, menyimpan info asal file
           kosakata = {
-            minnanonihongo: { data: minnaData, file: 'minnanonihongo.json' },
-            pertanian: { data: pertanianData, file: 'pertanian.json' },
+            minnanonihongo: { data: minnaData, file: 'MinnaNoNihongo.json' },
+            pertanian: { data: pertanianData, file: 'Pertanian.json' },
+            PelayananPelanggan: { data: PelayananPelangganData, file: 'Restoran.json' },
+            persiapanmakanandanminuman: { data: persiapanmakanandanminumanData, file: 'Restoran.json' },
           };
         })
         .catch((error) => console.error('Gagal memuat data:', error));
