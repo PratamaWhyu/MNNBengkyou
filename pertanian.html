@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kosakata</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pertanian</title>
   </head>
-  <body class="bg-gray-200">
+  <body class="bg-gray-100">
     <!-- NAVBAR-->
     <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -54,57 +55,7 @@
     </nav>
     <!--END NAVBAR-->
 
-    
-
-    <div id="search-result-container" class="m-8 hidden">
-      <h2 class="text-lg font-bold mb-2">Hasil Pencarian:</h2>
-      <div class="rounded-lg border bg-gray-500">
-        <div class="overflow-x-auto rounded-t-lg">
-          <table class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead class="bg-red-500 text-white text-xl text-center">
-              <tr>
-                <th class="px-4 py-2">Kana</th>
-                <th class="px-4 py-2">Kanji</th>
-                <th class="px-4 py-2">Arti</th>
-              </tr>
-            </thead>
-            <tbody id="search-result-body" class="divide-y divide-gray-200"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <!-- SEARCH BAR END -->
-
-    <div class="m-8">
-      <label for="babSelector" class="text-lg font-bold">Pilih Bab:</label>
-      <select id="babSelector" class="border p-2 rounded">
-        <option value="bab1">Bab 1</option>
-        <option value="bab2">Bab 2</option>
-        <option value="bab3">Bab 3</option>
-        <option value="bab4">Bab 4</option>
-        <option value="bab5">Bab 5</option>
-        <option value="bab6">Bab 6</option>
-        <option value="bab7">Bab 7</option>
-        <option value="bab8">Bab 8</option>
-        <option value="bab9">Bab 9</option>
-        <option value="bab10">Bab 10</option>
-        <option value="bab11">Bab 11</option>
-        <option value="bab12">Bab 12</option>
-        <option value="bab13">Bab 13</option>
-        <option value="bab14">Bab 14</option>
-        <option value="bab15">Bab 15</option>
-        <option value="bab16">Bab 16</option>
-        <option value="bab17">Bab 17</option>
-        <option value="bab18">Bab 18</option>
-        <option value="bab19">Bab 19</option>
-        <option value="bab20">Bab 20</option>
-        <option value="bab21">Bab 21</option>
-        <option value="bab22">Bab 22</option>
-        <option value="bab23">Bab 23</option>
-        <option value="bab24">Bab 24</option>
-        <option value="bab25">Bab 25</option>
-      </select>
-    </div>
+    <h2 class="text-center text-5xl p-5 font-semibold">Kosakata pertanian</h2>
 
     <div class="rounded-lg border bg-gray-500 m-8">
       <div class="overflow-x-auto rounded-t-lg">
@@ -121,56 +72,35 @@
       </div>
     </div>
 
+    <!-- Script Fetch Data -->
     <script>
-      let tableBody = document.getElementById('kosakata-body');
-      let babSelector = document.getElementById('babSelector');
-      let allData = {};
-  
-      // Ambil data dari JSON
-      fetch('data/MinnaNoNihongo.json')
-        .then(response => response.json())
-        .then(data => {
-          allData = data;
-          updateTable(babSelector.value); // Tampilkan data default
-        })
-        .catch(error => console.error('Gagal memuat JSON:', error));
-  
-      // Event listener ketika bab diubah
-      babSelector.addEventListener('change', function () {
-        updateTable(this.value);
+      document.addEventListener('DOMContentLoaded', function () {
+        fetch('data/pertanian.json')
+          .then((response) => response.json())
+          .then((data) => {
+            const kosakataBody = document.getElementById('kosakata-body');
+
+            data.pertanian.forEach((item, index) => {
+              // Tambahkan index sebagai parameter kedua
+              const row = document.createElement('tr');
+              row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-100'; // Gunakan index untuk warna selingan
+
+              row.innerHTML = `
+          <td class="px-4 py-2 border">${item.kana}</td>
+          <td class="px-4 py-2 border">${item.kanji !== '-' ? item.kanji : ''}</td>
+          <td class="px-4 py-2 border">${item.arti}</td>
+        `;
+
+              kosakataBody.appendChild(row);
+            });
+          })
+          .catch((error) => console.error('Error fetching data:', error));
       });
-  
-      // Fungsi untuk memperbarui tabel berdasarkan bab yang dipilih
-      function updateTable(bab) {
-        tableBody.innerHTML = ''; // Kosongkan tabel sebelum diisi ulang
-  
-        if (!allData[bab] || allData[bab].length === 0) {
-          tableBody.innerHTML = `<tr><td colspan="3" class="text-center text-red-500">Tidak ada data untuk bab ini</td></tr>`;
-          return;
-        }
-  
-        let rows = '';
-        allData[bab].forEach((item, index) => {
-          let rowClass = index % 2 === 0 ? 'bg-gray-100' : 'bg-white';
-          rows += `<tr class="${rowClass}">
-                    <td class="px-4 py-2">${item.kana}</td>
-                    <td class="px-4 py-2">${item.kanji}</td>
-                    <td class="px-4 py-2">${item.arti}</td>
-                  </tr>`;
-        });
-  
-        tableBody.innerHTML = rows;
-      }
       //responsive mobile
       document.getElementById('mobile-menu-button').addEventListener('click', function () {
         var menu = document.getElementById('mobile-menu');
         menu.classList.toggle('hidden');
       });
     </script>
-    
-
-    <!-- -->
-
-    <!---->
   </body>
 </html>

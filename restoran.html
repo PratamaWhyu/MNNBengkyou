@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restoran</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- NAVBAR-->
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-center">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button -->
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center">
+            <div class="hidden sm:block">
+              <div class="flex space-x-4">
+                <a href="index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+                <a href="kosakata.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page" aria-current="page">Kosakata</a>
+                <a href="polakalimat.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Pola Kalimat</a>
+                <a href="quiz.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Quiz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pt-2 pb-3">
+          <a href="index.html" class="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+          <a href="kosakata.html" class="block rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Kosakata</a>
+          <a href="polakalimat.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Pola Kalimat</a>
+          <a href="quiz.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Quiz</a>
+        </div>
+      </div>
+    </nav>
+    <!--END NAVBAR-->
+
+    <!-- Container -->
+    <div x-data="{ openTab: 1 }" class="m-4 bg-white shadow-lg rounded-lg overflow-hidden">
+      <!-- Tab Menu -->
+      <div class="flex">
+        <button @click="openTab = 1" :class="openTab === 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'" class="w-1/2 py-3 text-center font-semibold transition-all text-lg">Persiapan Makanan dan Minuman</button>
+        <button @click="openTab = 2" :class="openTab === 2 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'" class="w-1/2 py-3 text-center font-semibold transition-all text-lg">Pelayanan Pelanggan</button>
+      </div>
+
+      <!-- Konten Tab 1 -->
+      <div x-show="openTab === 1" class="p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 p-2">Persiapan Makanan dan Minuman</h2>
+
+        <div class="p-4">
+          <label for="babSelector1" class="text-lg font-bold">Pilih Bab:</label>
+          <select id="babSelector1" class="border p-2 rounded">
+            <option value="bab1">Bab 1</option>
+            <option value="bab2">Bab 2</option>
+            <option value="bab3">Bab 3</option>
+            <option value="bab4">Bab 4</option>
+            <option value="bab5">Bab 5</option>
+          </select>
+        </div>
+
+        <div class="rounded-lg border bg-gray-500">
+          <div class="overflow-x-auto rounded-t-lg">
+            <table class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead class="bg-blue-500 text-white text-xl">
+                <tr>
+                  <th class="px-4 py-2">Kana</th>
+                  <th class="px-4 py-2">Kanji</th>
+                  <th class="px-4 py-2">Arti</th>
+                </tr>
+              </thead>
+              <tbody id="kosakata-body1" class="divide-y divide-gray-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Konten Tab 2 -->
+      <div x-show="openTab === 2" class="p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 p-2">Pelayanan Pelanggan</h2>
+
+        <div class="p-4">
+          <label for="babSelector2" class="text-lg font-bold">Pilih Bab:</label>
+          <select id="babSelector2" class="border p-2 rounded">
+            <option value="bab1">Bab 1</option>
+            <option value="bab2">Bab 2</option>
+            <option value="bab3">Bab 3</option>
+            <option value="bab4">Bab 4</option>
+            <option value="bab5">Bab 5</option>
+          </select>
+        </div>
+
+        <div class="rounded-lg border bg-gray-500">
+          <div class="overflow-x-auto rounded-t-lg">
+            <table class="min-w-full text-center divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead class="bg-blue-500 text-white text-xl">
+                <tr>
+                  <th class="px-4 py-2">Kana</th>
+                  <th class="px-4 py-2">Kanji</th>
+                  <th class="px-4 py-2">Arti</th>
+                </tr>
+              </thead>
+              <tbody id="kosakata-body2" class="divide-y divide-gray-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript untuk Fetch Data dan Update Tabel -->
+    <script>
+      let dataPersiapanMakanan = {};
+      let dataPelayananPelanggan = {};
+
+      // Fetch data untuk Persiapan Makanan dan Minuman
+      fetch('data/PersiapanMakanandanMinuman.json')
+        .then((response) => response.json())
+        .then((data) => {
+          dataPersiapanMakanan = data;
+          updateTable('bab1', 'kosakata-body1', dataPersiapanMakanan); // Tampilkan default Bab 1
+        })
+        .catch((error) => console.error('Gagal memuat JSON Makanan:', error));
+
+      // Fetch data untuk Pelayanan Pelanggan
+      fetch('data/PelayananPelanggan.json')
+        .then((response) => response.json())
+        .then((data) => {
+          dataPelayananPelanggan = data;
+          updateTable('bab1', 'kosakata-body2', dataPelayananPelanggan); // Tampilkan default Bab 1
+        })
+        .catch((error) => console.error('Gagal memuat JSON Pelanggan:', error));
+
+      // Event listener untuk selector Bab di Tab 1
+      document.getElementById('babSelector1').addEventListener('change', function () {
+        updateTable(this.value, 'kosakata-body1', dataPersiapanMakanan);
+      });
+
+      // Event listener untuk selector Bab di Tab 2
+      document.getElementById('babSelector2').addEventListener('change', function () {
+        updateTable(this.value, 'kosakata-body2', dataPelayananPelanggan);
+      });
+
+      // Fungsi untuk mengupdate tabel berdasarkan bab yang dipilih
+      function updateTable(bab, tableBodyId, data) {
+        let tableBody = document.getElementById(tableBodyId);
+        tableBody.innerHTML = ''; // Kosongkan tabel sebelum diisi ulang
+
+        if (!data[bab] || data[bab].length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="3" class="text-center text-red-500">Tidak ada data untuk bab ini</td></tr>`;
+          return;
+        }
+
+        let rows = '';
+        data[bab].forEach((item, index) => {
+          let rowClass = index % 2 === 0 ? 'bg-gray-100' : 'bg-white';
+          rows += `<tr class="${rowClass}">
+                      <td class="px-4 py-2">${item.kana}</td>
+                      <td class="px-4 py-2">${item.kanji}</td>
+                      <td class="px-4 py-2">${item.arti}</td>
+                    </tr>`;
+        });
+
+        tableBody.innerHTML = rows;
+      }
+    </script>
+  </body>
+</html>
